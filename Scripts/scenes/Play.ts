@@ -7,6 +7,9 @@ module scenes
         private _plane?: objects.Plane;
         private _island?: objects.Island;
 
+        private _cloudNumber:number;
+        private _clouds?: objects.Cloud[];
+
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
@@ -28,6 +31,15 @@ module scenes
             this._ocean = new objects.Ocean();
             this._plane = new objects.Plane();
             this._island = new objects.Island();
+
+            this._cloudNumber = config.Game.CLOUD_NUM;
+            this._clouds = new Array<objects.Cloud>();
+            
+            // create an array of cloud objects
+            for (let index = 0; index < this._cloudNumber; index++) 
+            {
+                this._clouds[index] = new objects.Cloud();             
+            }
             
              this.Main();
         }        
@@ -36,9 +48,14 @@ module scenes
         {
            this._ocean.Update();
 
+           this._island.Update();
+
            this._plane.Update();
 
-           this._island.Update();
+           this._clouds.forEach(cloud => {
+               cloud.Update();
+           });
+
         }
         
         public Main(): void 
@@ -49,6 +66,10 @@ module scenes
 
             this.addChild(this._plane);
 
+            this._clouds.forEach(cloud => {
+                this.addChild(cloud);
+            });
+           
         }
 
         

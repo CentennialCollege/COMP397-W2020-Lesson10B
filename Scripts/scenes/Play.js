@@ -30,17 +30,30 @@ var scenes;
             this._ocean = new objects.Ocean();
             this._plane = new objects.Plane();
             this._island = new objects.Island();
+            this._cloudNumber = config.Game.CLOUD_NUM;
+            this._clouds = new Array();
+            // create an array of cloud objects
+            for (var index = 0; index < this._cloudNumber; index++) {
+                this._clouds[index] = new objects.Cloud();
+            }
             this.Main();
         };
         Play.prototype.Update = function () {
             this._ocean.Update();
-            this._plane.Update();
             this._island.Update();
+            this._plane.Update();
+            this._clouds.forEach(function (cloud) {
+                cloud.Update();
+            });
         };
         Play.prototype.Main = function () {
+            var _this = this;
             this.addChild(this._ocean);
             this.addChild(this._island);
             this.addChild(this._plane);
+            this._clouds.forEach(function (cloud) {
+                _this.addChild(cloud);
+            });
         };
         return Play;
     }(objects.Scene));
