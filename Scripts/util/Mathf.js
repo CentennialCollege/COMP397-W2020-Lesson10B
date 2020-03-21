@@ -31,6 +31,7 @@ var util;
         Mathf.RandomRange = function (min, max) {
             return Math.random() * (max - min + 1) + min;
         };
+        Mathf.Deg2Rad = 0.01745329;
         return Mathf;
     }());
     util.Mathf = Mathf;
