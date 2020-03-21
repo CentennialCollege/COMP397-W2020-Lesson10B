@@ -15,6 +15,7 @@ var managers;
                                 console.log("Collision with Island");
                                 var yaySound = createjs.Sound.play("yay");
                                 yaySound.volume = 0.25;
+                                config.Game.SCORE_BOARD.Score += 100;
                             }
                             break;
                         case "cloud":
@@ -22,6 +23,7 @@ var managers;
                                 console.log("Collision with Cloud");
                                 var thunderSound = createjs.Sound.play("thunder");
                                 thunderSound.volume = 0.25;
+                                config.Game.SCORE_BOARD.Lives -= 1;
                             }
                             break;
                     }

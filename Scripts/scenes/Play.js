@@ -36,6 +36,8 @@ var scenes;
             for (var index = 0; index < this._cloudNumber; index++) {
                 this._clouds[index] = new objects.Cloud();
             }
+            this._scoreBoard = new managers.ScoreBoard();
+            config.Game.SCORE_BOARD = this._scoreBoard;
             this.Main();
         };
         Play.prototype.Update = function () {
@@ -57,6 +59,8 @@ var scenes;
             this._clouds.forEach(function (cloud) {
                 _this.addChild(cloud);
             });
+            this.addChild(this._scoreBoard.LivesLabel);
+            this.addChild(this._scoreBoard.ScoreLabel);
         };
         return Play;
     }(objects.Scene));
