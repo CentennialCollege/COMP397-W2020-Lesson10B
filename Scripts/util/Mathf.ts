@@ -5,6 +5,11 @@ module util
 
         public static Deg2Rad:number = 0.01745329;
 
+        // angle = aiming angle in degrees
+        // for x coordinate = bullet speed * cos(angle * util.Deg2Rad);
+        // for y coordinate = bullet speed * sin(angle * util.Deg2Rad);
+
+
         public static Clamp(value:number, min:number, max:number)
         {
             if (value < min)

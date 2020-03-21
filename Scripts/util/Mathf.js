@@ -4,6 +4,9 @@ var util;
     var Mathf = /** @class */ (function () {
         function Mathf() {
         }
+        // angle = aiming angle in degrees
+        // for x coordinate = bullet speed * cos(angle * util.Deg2Rad);
+        // for y coordinate = bullet speed * sin(angle * util.Deg2Rad);
         Mathf.Clamp = function (value, min, max) {
             if (value < min) {
                 value = min;

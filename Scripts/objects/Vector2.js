@@ -170,6 +170,9 @@ var objects;
             var theYs = lhs.y - rhs.y;
             return new Vector2(theXs, theYs);
         };
+        Vector2.angle = function (from, to) {
+            return Math.acos(util.Mathf.Clamp(Vector2.dot(from.normalized(), to.normalized()), -1, 1)) * 57.29578;
+        };
         return Vector2;
     }());
     objects.Vector2 = Vector2;

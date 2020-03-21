@@ -235,7 +235,10 @@ module objects
             return new Vector2(theXs, theYs);
         }
 
-
+        public static angle(from:Vector2, to:Vector2):number
+        {
+            return Math.acos(util.Mathf.Clamp(Vector2.dot(from.normalized(), to.normalized()), -1, 1)) * 57.29578;
+        }
         
     }
 }
