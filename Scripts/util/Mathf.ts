@@ -2,6 +2,9 @@ module util
 {
     export class Mathf
     {
+
+        public static Deg2Rad:number = 0.01745329;
+
         public static Clamp(value:number, min:number, max:number)
         {
             if (value < min)
