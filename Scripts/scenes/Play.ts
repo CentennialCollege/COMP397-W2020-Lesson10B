@@ -83,6 +83,12 @@ module scenes
             this.addChild(this._scoreBoard.ScoreLabel);
         }
 
+        public Clean():void
+        {
+            this._plane.engineSound.stop();
+            this.removeAllChildren();
+        }
+
         
     }
 }

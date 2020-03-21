@@ -3,8 +3,8 @@ module scenes
     export class End extends objects.Scene
     {
         // PRIVATE INSTANCE MEMBERS
-        private _endLabel: objects.Label;
-        private _backButton: objects.Button;
+        private _gameOverLabel: objects.Label;
+        private _restartButton: objects.Button;
         private _ocean: objects.Ocean;
 
         // PUBLIC PROPERTIES
@@ -25,9 +25,9 @@ module scenes
         public Start(): void 
         {
              //instantiate a new Text object
-            this._endLabel = new objects.Label("End Scene", "80px", "Consolas", "#FFFF00", 320, 180, true);
+            this._gameOverLabel = new objects.Label("Game Over", "80px", "Consolas", "#FFFF00", 320, 180, true);
             // buttons
-             this._backButton = new objects.Button(config.Game.ASSETS.getResult("backButton"), 320, 430, true);
+             this._restartButton = new objects.Button(config.Game.ASSETS.getResult("restartButton"), 320, 430, true);
             
              this._ocean = new objects.Ocean();
              this.Main();
@@ -42,15 +42,22 @@ module scenes
         {
             this.addChild(this._ocean);
 
-            this.addChild(this._endLabel);
+            this.addChild(this._gameOverLabel);
 
         
-            this.addChild(this._backButton);
+            this.addChild(this._restartButton);
 
-            this._backButton.on("click", ()=>{
+            this._restartButton.on("click", ()=>{
+                config.Game.LIVES = 5;
+                config.Game.SCORE = 0;
                 config.Game.SCENE = scenes.State.PLAY;
             });
 
+        }
+
+        public Clean():void
+        {
+            this.removeAllChildren();
         }
 
         

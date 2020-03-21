@@ -62,6 +62,10 @@ var scenes;
             this.addChild(this._scoreBoard.LivesLabel);
             this.addChild(this._scoreBoard.ScoreLabel);
         };
+        Play.prototype.Clean = function () {
+            this._plane.engineSound.stop();
+            this.removeAllChildren();
+        };
         return Play;
     }(objects.Scene));
     scenes.Play = Play;

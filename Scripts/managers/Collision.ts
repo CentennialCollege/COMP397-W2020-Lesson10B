@@ -28,6 +28,12 @@ module managers
                                     let thunderSound = createjs.Sound.play("thunder");
                                     thunderSound.volume = 0.25;
                                     config.Game.SCORE_BOARD.Lives -= 1;
+
+                                    // check to see if all lives are lost and then go to End Scene
+                                    if(config.Game.LIVES < 1)
+                                    {
+                                        config.Game.SCENE = scenes.State.END;
+                                    }
                                 }
                                 break;
                         }

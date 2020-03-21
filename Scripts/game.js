@@ -13,7 +13,7 @@ var Game = (function () {
         { id: "placeholder", src: "./Assets/images/placeholder.png" },
         { id: "startButton", src: "./Assets/images/startButton.png" },
         { id: "nextButton", src: "./Assets/images/nextButton.png" },
-        { id: "backButton", src: "./Assets/images/backButton.png" },
+        { id: "restartButton", src: "./Assets/images/restartButton.png" },
         { id: "ocean", src: "./Assets/images/ocean.gif" },
         { id: "plane", src: "./Assets/images/plane.png" },
         { id: "island", src: "./Assets/images/island.png" },
@@ -61,7 +61,7 @@ var Game = (function () {
         console.log("%c Scene Switched...", "color: green; font-size: 16px;");
         // clean up
         if (currentSceneState != scenes.State.NO_SCENE) {
-            currentScene.removeAllChildren();
+            currentScene.Clean();
             stage.removeAllChildren();
         }
         // switch to the new scene
