@@ -33,6 +33,7 @@ module objects
         // PUBLIC METHODS
         public Start(): void 
         {
+            this.name = "cloud";
             this.alpha = 0.5; // transparency set to 50%
             this.Reset();
         }

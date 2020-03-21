@@ -34,7 +34,7 @@ module scenes
 
             this._cloudNumber = config.Game.CLOUD_NUM;
             this._clouds = new Array<objects.Cloud>();
-            
+
             // create an array of cloud objects
             for (let index = 0; index < this._cloudNumber; index++) 
             {
@@ -52,8 +52,11 @@ module scenes
 
            this._plane.Update();
 
+           managers.Collision.squaredRadiusCheck(this._plane, this._island);
+
            this._clouds.forEach(cloud => {
                cloud.Update();
+               managers.Collision.squaredRadiusCheck(this._plane, cloud);
            });
 
         }

@@ -34,6 +34,7 @@ var objects;
         };
         // PUBLIC METHODS
         Island.prototype.Start = function () {
+            this.name = "island";
             this._verticalSpeed = 5; // 5 px per frame
             this.velocity = new objects.Vector2(0, this._verticalSpeed);
             this.Reset();

@@ -40,6 +40,7 @@ var objects;
         };
         // PUBLIC METHODS
         Plane.prototype.Start = function () {
+            this.name = "plane";
             this._verticalPosition = 430; // locked to the bottom of the screen
         };
         Plane.prototype.Update = function () {

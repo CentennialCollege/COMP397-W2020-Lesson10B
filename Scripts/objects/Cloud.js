@@ -34,6 +34,7 @@ var objects;
         };
         // PUBLIC METHODS
         Cloud.prototype.Start = function () {
+            this.name = "cloud";
             this.alpha = 0.5; // transparency set to 50%
             this.Reset();
         };
