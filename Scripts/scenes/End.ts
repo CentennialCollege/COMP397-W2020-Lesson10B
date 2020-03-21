@@ -7,6 +7,8 @@ module scenes
         private _restartButton: objects.Button;
         private _ocean: objects.Ocean;
 
+        private _scoreBoard: managers.ScoreBoard;
+
         // PUBLIC PROPERTIES
 
         // CONSTRUCTOR
@@ -30,6 +32,9 @@ module scenes
              this._restartButton = new objects.Button(config.Game.ASSETS.getResult("restartButton"), 320, 430, true);
             
              this._ocean = new objects.Ocean();
+
+             this._scoreBoard = new managers.ScoreBoard();
+             this._scoreBoard.HighScore = config.Game.HIGH_SCORE;
              this.Main();
         }        
         
@@ -52,6 +57,8 @@ module scenes
                 config.Game.SCORE = 0;
                 config.Game.SCENE = scenes.State.PLAY;
             });
+
+            this.addChild(this._scoreBoard.HighScoreLabel);
 
         }
 

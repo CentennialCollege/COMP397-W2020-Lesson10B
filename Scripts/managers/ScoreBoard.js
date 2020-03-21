@@ -31,6 +31,18 @@ var managers;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(ScoreBoard.prototype, "HighScore", {
+            get: function () {
+                return this._highScore;
+            },
+            set: function (v) {
+                this._highScore = v;
+                config.Game.HIGH_SCORE = this._highScore;
+                this.HighScoreLabel.setText("High Score: " + this._highScore);
+            },
+            enumerable: true,
+            configurable: true
+        });
         Object.defineProperty(ScoreBoard.prototype, "LivesLabel", {
             get: function () {
                 return this._livesLabel;
@@ -45,12 +57,21 @@ var managers;
             enumerable: true,
             configurable: true
         });
+        Object.defineProperty(ScoreBoard.prototype, "HighScoreLabel", {
+            get: function () {
+                return this._highScoreLabel;
+            },
+            enumerable: true,
+            configurable: true
+        });
         // private methods
         ScoreBoard.prototype._initialize = function () {
             this._livesLabel = new objects.Label("Lives: 99", "20px", "Consolas", "#FFFF00", 20, 20);
             this._scoreLabel = new objects.Label("Score: 99999", "20px", "Consolas", "#FFFF00", 490, 20);
+            this._highScoreLabel = new objects.Label("High Score: 99999", "40px", "Consolas", "#FFFF00", 320, 290, true);
             this.Lives = config.Game.LIVES;
             this.Score = config.Game.SCORE;
+            this.HighScore = config.Game.HIGH_SCORE;
         };
         return ScoreBoard;
     }());

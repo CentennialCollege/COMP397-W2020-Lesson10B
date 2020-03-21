@@ -32,6 +32,8 @@ var scenes;
             // buttons
             this._restartButton = new objects.Button(config.Game.ASSETS.getResult("restartButton"), 320, 430, true);
             this._ocean = new objects.Ocean();
+            this._scoreBoard = new managers.ScoreBoard();
+            this._scoreBoard.HighScore = config.Game.HIGH_SCORE;
             this.Main();
         };
         End.prototype.Update = function () {
@@ -46,6 +48,7 @@ var scenes;
                 config.Game.SCORE = 0;
                 config.Game.SCENE = scenes.State.PLAY;
             });
+            this.addChild(this._scoreBoard.HighScoreLabel);
         };
         End.prototype.Clean = function () {
             this.removeAllChildren();

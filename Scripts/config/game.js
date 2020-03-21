@@ -10,6 +10,7 @@ var config;
         Game.CLOUD_NUM = 3;
         Game.LIVES = 5;
         Game.SCORE = 0;
+        Game.HIGH_SCORE = 0;
         return Game;
     }());
     config.Game = Game;

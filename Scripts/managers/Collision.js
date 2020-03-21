@@ -16,6 +16,9 @@ var managers;
                                 var yaySound = createjs.Sound.play("yay");
                                 yaySound.volume = 0.25;
                                 config.Game.SCORE_BOARD.Score += 100;
+                                if (config.Game.SCORE > config.Game.HIGH_SCORE) {
+                                    config.Game.HIGH_SCORE = config.Game.SCORE;
+                                }
                             }
                             break;
                         case "cloud":
