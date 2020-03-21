@@ -11,10 +11,18 @@ var managers;
                 if (!object2.isColliding) {
                     switch (object2.name) {
                         case "island":
-                            console.log("Collision with Island");
+                            {
+                                console.log("Collision with Island");
+                                var yaySound = createjs.Sound.play("yay");
+                                yaySound.volume = 0.25;
+                            }
                             break;
                         case "cloud":
-                            console.log("Collision with Cloud");
+                            {
+                                console.log("Collision with Cloud");
+                                var thunderSound = createjs.Sound.play("thunder");
+                                thunderSound.volume = 0.25;
+                            }
                             break;
                     }
                     object2.isColliding = true;

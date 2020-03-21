@@ -16,13 +16,21 @@ var objects;
 (function (objects) {
     var Plane = /** @class */ (function (_super) {
         __extends(Plane, _super);
-        // PUBLIC PROPERTIES
         // CONSTRUCTOR
         function Plane() {
             var _this = _super.call(this, config.Game.ASSETS.getResult("plane"), 0, 0, true) || this;
             _this.Start();
             return _this;
         }
+        Object.defineProperty(Plane.prototype, "engineSound", {
+            // PUBLIC PROPERTIES
+            // readonly property
+            get: function () {
+                return this._engineSound;
+            },
+            enumerable: true,
+            configurable: true
+        });
         // PRIVATE METHODS
         Plane.prototype._checkBounds = function () {
             // left boundary
@@ -42,6 +50,9 @@ var objects;
         Plane.prototype.Start = function () {
             this.name = "plane";
             this._verticalPosition = 430; // locked to the bottom of the screen
+            this._engineSound = createjs.Sound.play("engine");
+            this._engineSound.volume = 0.25;
+            this._engineSound.loop = -1; // loop forever
         };
         Plane.prototype.Update = function () {
             this._move();

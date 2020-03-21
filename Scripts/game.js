@@ -17,27 +17,10 @@ var Game = (function () {
         { id: "ocean", src: "./Assets/images/ocean.gif" },
         { id: "plane", src: "./Assets/images/plane.png" },
         { id: "island", src: "./Assets/images/island.png" },
-        { id: "cloud", src: "./Assets/images/cloud.png" }
-    ];
-    // W = wall
-    // O = water
-    // - = empty
-    var map = [
-        "-", "-", "W", "-", "W", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "W", "-", "W", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "W", "W", "W", "-", "W", "O", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "W", "-", "-", "-", "W", "O", "O", "O", "O", "O", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "W", "-", "-", "W", "W", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "W", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "W", "-", "W", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "W", "-", "W", "-", "-", "-", "O", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "W", "W", "W", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "-", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "-", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "-", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "-", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "-", "-", "-", "-", "-", "O", "O", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-",
-        "-", "-", "-", "-", "-", "-", "-", "-", "-", "-", "O", "-", "-", "-", "-", "-", "-", "-", "-", "-"
+        { id: "cloud", src: "./Assets/images/cloud.png" },
+        { id: "engine", src: "./Assets/audio/engine.ogg" },
+        { id: "yay", src: "./Assets/audio/yay.ogg" },
+        { id: "thunder", src: "./Assets/audio/thunder.ogg" }
     ];
     function Preload() {
         assets = new createjs.LoadQueue(); // asset container
@@ -56,14 +39,6 @@ var Game = (function () {
         createjs.Ticker.framerate = config.Game.FPS;
         createjs.Ticker.on('tick', Update);
         stage.enableMouseOver(20);
-        var rowString = "";
-        for (var row = 0; row < 15; row++) {
-            for (var col = 0; col < 20; col++) {
-                rowString += map[col + row * 20];
-            }
-            console.log(rowString);
-            rowString = "";
-        }
         currentSceneState = scenes.State.NO_SCENE;
         config.Game.SCENE = scenes.State.START;
     }

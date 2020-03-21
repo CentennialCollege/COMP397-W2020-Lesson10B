@@ -4,8 +4,16 @@ module objects
     {
         // PRIVATE INSTANCE MEMBERS
         private _verticalPosition:number;
+        private _engineSound : createjs.AbstractSoundInstance;
 
         // PUBLIC PROPERTIES
+        
+        // readonly property
+        public get engineSound() : createjs.AbstractSoundInstance 
+        {
+            return this._engineSound;
+        }
+        
 
         // CONSTRUCTOR
         constructor()
@@ -43,6 +51,9 @@ module objects
         {
             this.name = "plane";
             this._verticalPosition = 430; // locked to the bottom of the screen
+            this._engineSound = createjs.Sound.play("engine");
+            this._engineSound.volume = 0.25;
+            this._engineSound.loop = -1; // loop forever
         }
 
         public Update(): void 
